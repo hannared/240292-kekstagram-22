@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
 * Студент: [Anna Korsak](https://up.htmlacademy.ru/javascript/22/user/240292).
-* Наставник: `Неизвестно`.
+* Наставник: [Дмитрий Полуэктов](https://htmlacademy.ru/profile/id1283179).
 
 ---
 
