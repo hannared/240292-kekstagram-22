@@ -6,11 +6,9 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-const r0 = getRandomInt(0, 10);
-const r1 = getRandomInt(20, 30);
+getRandomInt(0, 10);
+getRandomInt(20, 30);
 
-console.log(r0);
-console.log(r1);
 
 
 function validateLength (line, maxLength) {
@@ -19,10 +17,8 @@ function validateLength (line, maxLength) {
   } else {
     return false;
   }
-};
+}
 
-const a0 = validateLength ('Привет, я строка', 40);
-const a1 = validateLength ('Привет, я строка', 5);
+validateLength ('Привет, я строка', 40);
+validateLength ('Привет, я строка', 5);
 
-console.log(a0);
-console.log(a1);
