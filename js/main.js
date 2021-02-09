@@ -1,15 +1,8 @@
-//https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range
+const _ = require('lodash');
 
 function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+  return _.random(min, max);
 }
-
-getRandomInt(0, 10);
-getRandomInt(20, 30);
-
-
 
 function validateLength (line, maxLength) {
   if (line.length <= maxLength) {
@@ -39,9 +32,17 @@ for (let i = 1; i <= 25; i++) {
 
   for (let j = 0; j < getRandomInt(1, 5); j++) {
     const messageIndex = getRandomInt(0, messages.length - 1);
-    const nameIndex = getRandomInt(0, names.length - 1)
+    const nameIndex = getRandomInt(0, names.length - 1);
+
+
+    let id = getRandomInt(1, 2000);
+    while(_.includes(commentsId, id)) {
+      id = getRandomInt(1, 2000);
+    }
+    commentsId.push(id);
+
     const comment = {
-      id: getRandomInt(1, 20),
+      id: id,
       avatar: `img/avatar-${getRandomInt(1,6)}.svg`,
       message: messages[messageIndex],
       name: names[nameIndex]
