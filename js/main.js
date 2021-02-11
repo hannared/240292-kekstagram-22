@@ -1,3 +1,5 @@
+const _ = window._;
+
 function getRandomInt(min, max) {
   return _.random(min, max);
 }
@@ -22,7 +24,7 @@ for (let i = 1; i <= 25; i++) {
     const nameIndex = getRandomInt(0, names.length - 1);
 
     let id = getRandomInt(1, 2000);
-    while(_.includes(commentsId, id)) {
+    while(commentsId.includes(id)) {
       id = getRandomInt(1, 2000);
     }
     commentsId.push(id);
@@ -36,3 +38,5 @@ for (let i = 1; i <= 25; i++) {
     image.comments.push(comment);
   }
 }
+
+
