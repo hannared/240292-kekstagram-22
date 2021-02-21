@@ -1,19 +1,17 @@
+const previewPicture = document.querySelector('.big-picture');
+const commentsList = previewPicture.querySelector('.social__comments');
+const previewPictureClose = previewPicture.querySelector(
+  '.big-picture__cancel'
+);
+const scrollOff = document.querySelector('body');
+
+previewPictureClose.addEventListener('click', () => {
+  previewPicture.classList.add('hidden');
+  scrollOff.classList.remove('modal-open');
+});
+
 const preview = ({ url, likes, comments, description }) => {
-  const previewPicture = document.querySelector('.big-picture');
-  const commentsList = previewPicture.querySelector('.social__comments');
-  const scrollOff = document.querySelector('body');
-  const previewPictureClose = previewPicture.querySelector(
-    '.big-picture__cancel'
-  );
-
-  previewPicture.addEventListener('click', () => {
-    previewPicture.classList.remove('hidden');
-    scrollOff.classList.add('modal-open');
-  });
-
-  previewPictureClose.addEventListener('click', () => {
-    previewPicture.classList.add('hidden');
-  });
+  previewPicture.classList.remove('hidden');
 
   const commentsCount = previewPicture.querySelector('.social__comment-count');
   const commentsLoader = previewPicture.querySelector('.comments-loader');
@@ -40,16 +38,4 @@ const preview = ({ url, likes, comments, description }) => {
   commentsList.appendChild(commentsListFragment);
 };
 
-preview({
-  url: 'google.com',
-  likes: 100,
-  description: 'kkjnkn',
-  comments: [
-    {
-      id: 1,
-      avatar: `img/avatar.svg`,
-      message: 'hhhhh',
-      name: 'ppppp',
-    },
-  ],
-});
+export default preview;
