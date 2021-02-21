@@ -1,7 +1,7 @@
 const previewPicture = document.querySelector('.big-picture');
 const commentsList = previewPicture.querySelector('.social__comments');
 const previewPictureClose = previewPicture.querySelector(
-  '.big-picture__cancel'
+  '.big-picture__cancel',
 );
 const scrollOff = document.querySelector('body');
 
