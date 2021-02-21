@@ -6,6 +6,15 @@ const preview = ({ url, likes, comments, description }) => {
     '.big-picture__cancel'
   );
 
+  previewPicture.addEventListener('click', () => {
+    previewPicture.classList.remove('hidden');
+    scrollOff.classList.add('modal-open');
+  });
+
+  previewPictureClose.addEventListener('click', () => {
+    previewPicture.classList.add('hidden');
+  });
+
   const commentsCount = previewPicture.querySelector('.social__comment-count');
   const commentsLoader = previewPicture.querySelector('.comments-loader');
   commentsCount.classList.add('hidden');
