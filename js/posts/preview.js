@@ -10,7 +10,7 @@ previewPictureClose.addEventListener('click', () => {
   scrollOff.classList.remove('modal-open');
 });
 
-const preview = ({ url, likes, comments, description }) => {
+const showPreview = ({ url, likes, comments, description }) => {
   previewPicture.classList.remove('hidden');
 
   const commentsCount = previewPicture.querySelector('.social__comment-count');
@@ -38,4 +38,4 @@ const preview = ({ url, likes, comments, description }) => {
   commentsList.appendChild(commentsListFragment);
 };
 
-export default preview;
+export default showPreview;

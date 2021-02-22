@@ -1,5 +1,5 @@
 import generatePosts from './data.js';
-import preview from './preview.js';
+import showPreview from './preview.js';
 
 const images = generatePosts();
 
@@ -24,10 +24,15 @@ images.forEach(({ id, url, likes, comments }) => {
 
 picturesContainer.appendChild(picturesFragment);
 
-images.forEach((image) => {
-  const imageElement = document.querySelector(`#image${image.id}`);
-  imageElement.addEventListener('click', () => {
-    preview(image);
+document.querySelector('.pictures').addEventListener('click', (evt) => {
+  const pictureElement = evt.target.closest('.picture');
+
+  if (pictureElement) {
+    const image = images.find(
+      (element) => `image${element.id}` == pictureElement.id,
+    );
+    showPreview(image);
+
     scrollOff.classList.add('modal-open');
-  });
+  }
 });
