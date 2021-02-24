@@ -8,14 +8,40 @@ uploadPhotos.addEventListener('change', (evt) => {
   scrollOff.classList.add('modal-open');
 });
 
+const closeModal = () => {
+  imageUploadModal.classList.add('hidden');
+  uploadPhotos.value = '';
+};
 const buttonClose = imageUploadModal.querySelector('#upload-cancel');
 
 buttonClose.addEventListener('click', function () {
-  imageUploadModal.classList.add('hidden');
+  closeModal();
 });
 
 document.addEventListener('keydown', function (evt) {
   if (evt.key === 'Escape') {
-    imageUploadModal.classList.add('hidden');
+    closeModal();
   }
+});
+
+const buttonPlus = imageUploadModal.querySelector('.scale__control--bigger');
+const buttonMinus = imageUploadModal.querySelector('.scale__control--smaller');
+const scaleValue = imageUploadModal.querySelector('.scale__control--value');
+
+buttonPlus.addEventListener('click', () => {
+  scaleValue.value = parseInt(scaleValue.value) + 25;
+
+  if (scaleValue.value >= 100) {
+    scaleValue.value = 100;
+  }
+  scaleValue.value += '%';
+});
+
+buttonMinus.addEventListener('click', () => {
+  scaleValue.value = parseInt(scaleValue.value) - 25;
+
+  if (scaleValue.value <= 0) {
+    scaleValue.value = 0;
+  }
+  scaleValue.value += '%';
 });
