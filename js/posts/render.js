@@ -29,7 +29,7 @@ document.querySelector('.pictures').addEventListener('click', (evt) => {
 
   if (pictureElement) {
     const image = images.find(
-      (element) => `image${element.id}` == pictureElement.id,
+      (element) => `image${element.id}` === pictureElement.id,
     );
     showPreview(image);
 
