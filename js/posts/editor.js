@@ -1,3 +1,5 @@
+import resetEffects from './effects.js';
+
 const uploadPhotos = document.querySelector('#upload-file');
 const imageUploadModal = document.querySelector('.img-upload__overlay');
 
@@ -11,6 +13,7 @@ uploadPhotos.addEventListener('change', (evt) => {
 const closeModal = () => {
   imageUploadModal.classList.add('hidden');
   uploadPhotos.value = '';
+  resetEffects();
 };
 const buttonClose = imageUploadModal.querySelector('#upload-cancel');
 
