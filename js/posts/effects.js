@@ -21,7 +21,7 @@ effects.forEach((element) => {
   });
 });
 
-noUiSlider.create(effectLevel, {
+window.noUiSlider.create(effectLevel, {
   range: {
     min: 0,
     max: 100,
