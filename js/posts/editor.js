@@ -6,6 +6,7 @@ const imageUploadModal = document.querySelector('.img-upload__overlay');
 uploadPhotos.addEventListener('change', () => {
   imageUploadModal.classList.remove('hidden');
   resetEditor();
+  resetEffects();
   const scrollOff = document.querySelector('body');
   scrollOff.classList.add('modal-open');
 });
@@ -13,7 +14,6 @@ uploadPhotos.addEventListener('change', () => {
 const closeModal = () => {
   imageUploadModal.classList.add('hidden');
   uploadPhotos.value = '';
-  resetEffects();
 };
 const buttonClose = imageUploadModal.querySelector('#upload-cancel');
 
@@ -47,7 +47,7 @@ buttonPlus.addEventListener('click', () => {
   scaleValue.value = scale + '%';
 
   scale = scale / 100;
-  imagePreview.style = `transform: scale(${scale})`;
+  imagePreview.style.transform = `scale(${scale})`;
 });
 
 buttonMinus.addEventListener('click', () => {
@@ -60,5 +60,5 @@ buttonMinus.addEventListener('click', () => {
   scaleValue.value = scale + '%';
 
   scale = scale / 100;
-  imagePreview.style = `transform: scale(${scale})`;
+  imagePreview.style.transform = `scale(${scale})`;
 });
