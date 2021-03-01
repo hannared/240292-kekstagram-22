@@ -12,7 +12,7 @@ effects.forEach((element) => {
     imagePreview.classList.add('effects__preview--' + evt.target.value);
     selectedEffect = evt.target.value;
     if (selectedEffect === 'none') {
-      imagePreview.style = '';
+      imagePreview.style.filter = '';
       effectLevel.classList.add('hidden');
     } else {
       effectLevel.classList.remove('hidden');
