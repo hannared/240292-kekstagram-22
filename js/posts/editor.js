@@ -17,11 +17,9 @@ const closeModal = () => {
 };
 const buttonClose = imageUploadModal.querySelector('#upload-cancel');
 
-buttonClose.addEventListener('click', function () {
-  closeModal();
-});
+buttonClose.addEventListener('click', closeModal);
 
-document.addEventListener('keydown', function (evt) {
+document.addEventListener('keydown', (evt) => {
   if (evt.key === 'Escape') {
     closeModal();
   }
