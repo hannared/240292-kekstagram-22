@@ -24,7 +24,7 @@ const validateHashTags = (str) => {
     return false;
   }
 
-  for (const i = 0; i < hashTags.length; i++) {
+  for (let i = 0; i < hashTags.length; i++) {
     const tag = hashTags[i];
     if (!tag.startsWith('#')) {
       inputHashtag.setCustomValidity('Хэштег должен начинаться с символа #');
