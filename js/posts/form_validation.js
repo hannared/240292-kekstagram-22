@@ -2,10 +2,6 @@ const imageUploadModal = document.querySelector('.img-upload__overlay');
 const inputHashtag = imageUploadModal.querySelector('.text__hashtags');
 const comment = imageUploadModal.querySelector('.text__description');
 
-/*
-    если фокус находится в поле ввода хэш-тега, нажатие на Esc не должно приводить к закрытию формы редактирования изображения.
-*/
-
 const validateHashTag = (hashtag) => {
   const regex = /^#\w{1,19}$/;
   const found = hashtag.match(regex);
