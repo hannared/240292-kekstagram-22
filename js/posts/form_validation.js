@@ -43,7 +43,8 @@ const validateHashTags = (str) => {
       return false;
     }
   }
-
+  inputHashtag.setCustomValidity('');
+  comment.setCustomValidity('');
   return true;
 };
 
