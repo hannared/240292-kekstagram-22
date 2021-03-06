@@ -44,7 +44,7 @@ const validateHashTags = (str) => {
     }
   }
   inputHashtag.setCustomValidity('');
-  comment.setCustomValidity('');
+
   return true;
 };
 
