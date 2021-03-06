@@ -3,18 +3,23 @@ import resetEffects from './effects.js';
 const uploadPhotos = document.querySelector('#upload-file');
 const imageUploadModal = document.querySelector('.img-upload__overlay');
 
-uploadPhotos.addEventListener('change', () => {
+const openModal = () => {
   imageUploadModal.classList.remove('hidden');
   resetEditor();
   resetEffects();
   const scrollOff = document.querySelector('body');
   scrollOff.classList.add('modal-open');
-});
+};
 
 const closeModal = () => {
   imageUploadModal.classList.add('hidden');
   uploadPhotos.value = '';
 };
+
+uploadPhotos.addEventListener('change', () => {
+  openModal();
+});
+
 const buttonClose = imageUploadModal.querySelector('#upload-cancel');
 
 buttonClose.addEventListener('click', closeModal);
@@ -60,3 +65,5 @@ buttonMinus.addEventListener('click', () => {
   scale = scale / 100;
   imagePreview.style.transform = `scale(${scale})`;
 });
+
+export { openModal, closeModal };
