@@ -12,7 +12,10 @@ const validateHashTags = (str) => {
   if (str.trim().length === 0) {
     return true;
   }
-  const hashTags = str.toLowerCase().split(' ');
+  const hashTags = str
+    .toLowerCase()
+    .split(' ')
+    .filter((word) => word.length !== 0);
 
   if (hashTags.length !== new Set(hashTags).size) {
     inputHashtag.setCustomValidity('Хэштеги должны быть уникальны');
@@ -26,6 +29,7 @@ const validateHashTags = (str) => {
 
   for (let i = 0; i < hashTags.length; i++) {
     const tag = hashTags[i];
+
     if (!tag.startsWith('#')) {
       inputHashtag.setCustomValidity('Хэштег должен начинаться с символа #');
       return false;
@@ -43,8 +47,8 @@ const validateHashTags = (str) => {
       return false;
     }
   }
-  inputHashtag.setCustomValidity('');
 
+  inputHashtag.setCustomValidity('');
   return true;
 };
 
