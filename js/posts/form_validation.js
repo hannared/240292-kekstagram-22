@@ -10,6 +10,7 @@ const validateHashTag = (hashtag) => {
 
 const validateHashTags = (str) => {
   if (str.trim().length === 0) {
+    inputHashtag.setCustomValidity('');
     return true;
   }
   const hashTags = str
