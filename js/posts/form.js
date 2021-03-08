@@ -1,4 +1,5 @@
 import { closeModal } from './editor.js';
+import showError from '../errors.js';
 const uploadForm = document.querySelector('.img-upload__form');
 
 const setUploadFormSubmit = (onSuccess) => {
@@ -7,10 +8,22 @@ const setUploadFormSubmit = (onSuccess) => {
 
     const formData = new FormData(evt.target);
 
-    fetch('https://22.javascript.pages.academy/kekstagram', {
+    fetch('https://22.javascript.pages.academy/404', {
       method: 'POST',
       body: formData,
-    }).then(() => onSuccess());
+    })
+      .then((response) => {
+        if (response.ok) {
+          onSuccess();
+        } else {
+          closeModal();
+          showError('Ошибка загрузки файла');
+        }
+      })
+      .catch(() => {
+        closeModal();
+        showError('Ошибка загрузки файла');
+      });
   });
 };
 
