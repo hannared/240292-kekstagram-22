@@ -16,8 +16,7 @@ const setUploadFormSubmit = (onSuccess) => {
         if (response.ok) {
           onSuccess();
         } else {
-          closeModal();
-          showError('Ошибка загрузки файла');
+          throw new Error();
         }
       })
       .catch(() => {
