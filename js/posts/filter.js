@@ -16,7 +16,7 @@ filterDefault.addEventListener('click', () => {
   filterDiscussed.classList.remove('img-filters__button--active');
 });
 
-filterRandom.addEventListener('click', () => {
+filterRandom.addEventnListener('click', () => {
   const shuffled = images.sort(() => 0.5 - Math.random());
 
   // Get sub-array of first n elements after shuffled
