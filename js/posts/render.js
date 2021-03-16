@@ -17,6 +17,10 @@ const render = (images) => {
     picturesFragment.appendChild(pictureElement);
   });
 
+  const allPictures = document.querySelectorAll('.picture');
+  allPictures.forEach((picture) => {
+    picture.remove();
+  });
   picturesContainer.appendChild(picturesFragment);
 
   document.querySelector('.pictures').addEventListener('click', (evt) => {
