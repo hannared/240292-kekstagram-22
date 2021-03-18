@@ -13,6 +13,7 @@ previewPictureClose.addEventListener('click', () => {
 
 const showPreview = ({ url, likes, comments, description }) => {
   previewPicture.classList.remove('hidden');
+  commentsLoader.classList.remove('hidden');
 
   const commentsCount = previewPicture.querySelector('.social__comment-count');
 
