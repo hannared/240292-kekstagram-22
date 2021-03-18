@@ -47,12 +47,17 @@ const showPreview = ({ url, likes, comments, description }) => {
 
 const showComments = (n) => {
   const shownComments = document.querySelectorAll('.social__comment.hidden');
-  const commentsNumber = Array.prototype.slice.call(shownComments).slice(0, n);
+  const comments = Array.prototype.slice.call(shownComments).slice(0, n);
 
-  commentsNumber.forEach((comment) => {
+  comments.forEach((comment) => {
     comment.classList.remove('hidden');
   });
-  if (commentsNumber.length == 0) {
+  const remainingComments = document.querySelectorAll('.social__comment.hidden')
+    .length;
+  document.querySelector('.comments-shown').textContent =
+    document.querySelectorAll('.social__comment').length - remainingComments;
+
+  if (remainingComments == 0) {
     commentsLoader.classList.add('hidden');
   }
 };
