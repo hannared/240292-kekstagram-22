@@ -67,7 +67,7 @@ const showComments = (n) => {
   document.querySelector('.comments-shown').textContent =
     document.querySelectorAll('.social__comment').length - remainingComments;
 
-  if (remainingComments == 0) {
+  if (remainingComments === 0) {
     commentsLoader.classList.add('hidden');
   }
 };
