@@ -8,6 +8,7 @@ const filterDiscussed = filter.querySelector('#filter-discussed');
 
 const RERENDER_DELAY = 500;
 const ACTIVE_CLASS = 'img-filters__button--active';
+const RANDOM_PICTURES = 10;
 
 const debouncedRenderImages = window._.debounce((images) => {
   render(images);
@@ -24,7 +25,7 @@ filterDefault.addEventListener('click', () => {
 filterRandom.addEventListener('click', () => {
   const shuffled = images.sort(() => 0.5 - Math.random());
 
-  let selected = shuffled.slice(0, 10);
+  let selected = shuffled.slice(0, RANDOM_PICTURES);
 
   debouncedRenderImages(selected);
 

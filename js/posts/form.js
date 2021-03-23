@@ -1,4 +1,4 @@
-import { closeModal } from './editor.js';
+import { onCloseModalClick } from './editor.js';
 import showError from '../errors.js';
 import showSuccess from '../success.js';
 const uploadForm = document.querySelector('.img-upload__form');
@@ -22,10 +22,10 @@ const setUploadFormSubmit = (onSuccess) => {
         }
       })
       .catch(() => {
-        closeModal();
+        onCloseModalClick();
         showError('Ошибка загрузки файла');
       });
   });
 };
 
-setUploadFormSubmit(closeModal);
+setUploadFormSubmit(onCloseModalClick);

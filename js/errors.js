@@ -11,8 +11,8 @@ const showError = (text) => {
   const errorButton = errorElement.querySelector('.error__button');
 
   const removeError = () => {
-    document.querySelectorAll('.error').forEach((el) => {
-      el.remove();
+    document.querySelectorAll('.error').forEach((element) => {
+      element.remove();
     });
   };
 
@@ -20,13 +20,13 @@ const showError = (text) => {
     removeError();
   });
 
-  errorElement.querySelectorAll('.error').forEach((el) => {
-    el.addEventListener('click', () => {
+  errorElement.querySelectorAll('.error').forEach((element) => {
+    element.addEventListener('click', () => {
       removeError();
     });
   });
 
-  document.addEventListener('keydown', function (evt) {
+  document.addEventListener('keydown', (evt) => {
     if (evt.key === 'Escape') {
       removeError();
     }

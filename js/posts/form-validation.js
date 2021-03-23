@@ -2,6 +2,8 @@ const imageUploadModal = document.querySelector('.img-upload__overlay');
 const inputHashtag = imageUploadModal.querySelector('.text__hashtags');
 const comment = imageUploadModal.querySelector('.text__description');
 
+const TAG_LENGTH = 20;
+
 const validateHashTag = (hashtag) => {
   const regex = /^#\w{1,19}$/;
   const found = hashtag.match(regex);
@@ -36,7 +38,7 @@ const validateHashTags = (str) => {
       return false;
     }
 
-    if (tag.length > 20) {
+    if (tag.length > TAG_LENGTH) {
       inputHashtag.setCustomValidity('Длина хэштега не должна превышать 20');
       return false;
     }

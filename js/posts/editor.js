@@ -3,6 +3,8 @@ import resetEffects from './effects.js';
 const uploadPhotos = document.querySelector('#upload-file');
 const imageUploadModal = document.querySelector('.img-upload__overlay');
 
+const SCALE_STEP = 25;
+
 const openModal = () => {
   imageUploadModal.classList.remove('hidden');
   resetEditor();
@@ -11,7 +13,7 @@ const openModal = () => {
   scrollOff.classList.add('modal-open');
 };
 
-const closeModal = () => {
+const onCloseModalClick = () => {
   imageUploadModal.classList.add('hidden');
   uploadPhotos.value = '';
 };
@@ -22,11 +24,11 @@ uploadPhotos.addEventListener('change', () => {
 
 const buttonClose = imageUploadModal.querySelector('#upload-cancel');
 
-buttonClose.addEventListener('click', closeModal);
+buttonClose.addEventListener('click', onCloseModalClick);
 
 document.addEventListener('keydown', (evt) => {
   if (evt.key === 'Escape') {
-    closeModal();
+    onCloseModalClick();
   }
 });
 
@@ -41,7 +43,7 @@ const resetEditor = () => {
 };
 
 buttonPlus.addEventListener('click', () => {
-  let scale = parseInt(scaleValue.value) + 25;
+  let scale = parseInt(scaleValue.value) + SCALE_STEP;
 
   if (scale >= 100) {
     scale = 100;
@@ -54,10 +56,10 @@ buttonPlus.addEventListener('click', () => {
 });
 
 buttonMinus.addEventListener('click', () => {
-  let scale = parseInt(scaleValue.value) - 25;
+  let scale = parseInt(scaleValue.value) - SCALE_STEP;
 
-  if (scale <= 25) {
-    scale = 25;
+  if (scale <= SCALE_STEP) {
+    scale = SCALE_STEP;
   }
 
   scaleValue.value = scale + '%';
@@ -66,4 +68,4 @@ buttonMinus.addEventListener('click', () => {
   imagePreview.style.transform = `scale(${scale})`;
 });
 
-export { openModal, closeModal };
+export { openModal, onCloseModalClick };

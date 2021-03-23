@@ -11,8 +11,8 @@ const showSuccess = (text) => {
   const successButton = successElement.querySelector('.success__button');
 
   const removeSuccess = () => {
-    document.querySelectorAll('.success').forEach((el) => {
-      el.remove();
+    document.querySelectorAll('.success').forEach((element) => {
+      element.remove();
     });
   };
 
@@ -20,13 +20,13 @@ const showSuccess = (text) => {
     removeSuccess();
   });
 
-  successElement.querySelectorAll('.success').forEach((el) => {
-    el.addEventListener('click', () => {
+  successElement.querySelectorAll('.success').forEach((element) => {
+    element.addEventListener('click', () => {
       removeSuccess();
     });
   });
 
-  document.addEventListener('keydown', function (evt) {
+  document.addEventListener('keydown', (evt) => {
     if (evt.key === 'Escape') {
       removeSuccess();
     }
