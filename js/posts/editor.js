@@ -2,14 +2,22 @@ import resetEffects from './effects.js';
 
 const uploadPhotos = document.querySelector('#upload-file');
 const imageUploadModal = document.querySelector('.img-upload__overlay');
+const buttonClose = imageUploadModal.querySelector('#upload-cancel');
+const buttonPlus = imageUploadModal.querySelector('.scale__control--bigger');
+const buttonMinus = imageUploadModal.querySelector('.scale__control--smaller');
+const scaleValue = imageUploadModal.querySelector('.scale__control--value');
+const imagePreview = imageUploadModal.querySelector('.img-upload__preview img');
 
 const SCALE_STEP = 25;
+const MAX_SCALE_VALUE = 100;
+const PERCENTS_CONVERTION = 100;
 
 const openModal = () => {
+  const scrollOff = document.querySelector('body');
+
   imageUploadModal.classList.remove('hidden');
   resetEditor();
   resetEffects();
-  const scrollOff = document.querySelector('body');
   scrollOff.classList.add('modal-open');
 };
 
@@ -22,8 +30,6 @@ uploadPhotos.addEventListener('change', () => {
   openModal();
 });
 
-const buttonClose = imageUploadModal.querySelector('#upload-cancel');
-
 buttonClose.addEventListener('click', onCloseModalClick);
 
 document.addEventListener('keydown', (evt) => {
@@ -31,11 +37,6 @@ document.addEventListener('keydown', (evt) => {
     onCloseModalClick();
   }
 });
-
-const buttonPlus = imageUploadModal.querySelector('.scale__control--bigger');
-const buttonMinus = imageUploadModal.querySelector('.scale__control--smaller');
-const scaleValue = imageUploadModal.querySelector('.scale__control--value');
-const imagePreview = imageUploadModal.querySelector('.img-upload__preview img');
 
 const resetEditor = () => {
   imagePreview.style = 'transform: scale(1.0)';
@@ -45,13 +46,13 @@ const resetEditor = () => {
 buttonPlus.addEventListener('click', () => {
   let scale = parseInt(scaleValue.value) + SCALE_STEP;
 
-  if (scale >= 100) {
-    scale = 100;
+  if (scale >= MAX_SCALE_VALUE) {
+    scale = MAX_SCALE_VALUE;
   }
 
   scaleValue.value = scale + '%';
 
-  scale = scale / 100;
+  scale = scale / PERCENTS_CONVERTION;
   imagePreview.style.transform = `scale(${scale})`;
 });
 
@@ -64,7 +65,7 @@ buttonMinus.addEventListener('click', () => {
 
   scaleValue.value = scale + '%';
 
-  scale = scale / 100;
+  scale = scale / PERCENTS_CONVERTION;
   imagePreview.style.transform = `scale(${scale})`;
 });
 

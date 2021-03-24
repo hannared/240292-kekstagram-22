@@ -1,5 +1,12 @@
 const previewPicture = document.querySelector('.big-picture');
 const commentsList = previewPicture.querySelector('.social__comments');
+const commentTemplateElement = commentsList.querySelector('.social__comment');
+const commentTemplatePicture = commentTemplateElement.querySelector(
+  '.social__picture',
+);
+const commentTemplateText = commentTemplateElement.querySelector(
+  '.social__text',
+);
 const previewPictureClose = previewPicture.querySelector(
   '.big-picture__cancel',
 );
@@ -22,6 +29,8 @@ document.addEventListener('keydown', (evt) => {
 });
 
 const showPreview = ({ url, likes, comments, description }) => {
+  const commentsListFragment = document.createDocumentFragment();
+
   previewPicture.classList.remove('hidden');
   commentsLoader.classList.remove('hidden');
 
@@ -30,15 +39,12 @@ const showPreview = ({ url, likes, comments, description }) => {
   previewPicture.querySelector('.comments-count').textContent = comments.length;
   previewPicture.querySelector('.social__caption').textContent = description;
 
-  const commentsListFragment = document.createDocumentFragment();
-
   comments.forEach(({ avatar, message, name }) => {
-    const commentElement = commentsList
-      .querySelector('.social__comment')
-      .cloneNode(true);
-    commentElement.querySelector('.social__picture').src = avatar;
-    commentElement.querySelector('.social__picture').alt = name;
-    commentElement.querySelector('.social__text').textContent = message;
+    commentTemplatePicture.src = avatar;
+    commentTemplatePicture.alt = name;
+    commentTemplateText.textContent = message;
+
+    const commentElement = commentTemplateElement.cloneNode(true);
     commentsListFragment.appendChild(commentElement);
   });
 
@@ -46,7 +52,6 @@ const showPreview = ({ url, likes, comments, description }) => {
   commentsList.appendChild(commentsListFragment);
 
   const allComments = document.querySelectorAll('.social__comment');
-
   allComments.forEach((comment) => {
     comment.classList.add('hidden');
   });
