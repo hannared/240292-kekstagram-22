@@ -2,7 +2,9 @@ import render from './render.js';
 
 const filter = document.querySelector('.img-filters');
 
-export let images = [];
+let images = [];
+
+export const getImages = () => images;
 
 export const downloadImages = () => {
   fetch('https://22.javascript.pages.academy/kekstagram/data')

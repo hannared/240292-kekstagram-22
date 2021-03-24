@@ -16,20 +16,23 @@ const commentsLoader = previewPicture.querySelector('.comments-loader');
 const closeModal = () => {
   previewPicture.classList.add('hidden');
   scrollOff.classList.remove('modal-open');
+  document.removeEventListener('keydown', onEscKeyDown);
 };
 
 previewPictureClose.addEventListener('click', () => {
   closeModal();
 });
 
-document.addEventListener('keydown', (evt) => {
+const onEscKeyDown = (evt) => {
   if (evt.key === 'Escape') {
     closeModal();
   }
-});
+};
 
 const showPreview = ({ url, likes, comments, description }) => {
   const commentsListFragment = document.createDocumentFragment();
+
+  document.addEventListener('keydown', onEscKeyDown);
 
   previewPicture.classList.remove('hidden');
   commentsLoader.classList.remove('hidden');

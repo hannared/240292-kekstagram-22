@@ -1,4 +1,4 @@
-import { images } from './data.js';
+import { getImages } from './data.js';
 import render from './render.js';
 
 const filter = document.querySelector('.img-filters');
@@ -15,6 +15,7 @@ const debouncedRenderImages = window._.debounce((images) => {
 }, RERENDER_DELAY);
 
 filterDefault.addEventListener('click', () => {
+  const images = getImages();
   debouncedRenderImages(images);
 
   filterDefault.classList.add(ACTIVE_CLASS);
@@ -23,6 +24,7 @@ filterDefault.addEventListener('click', () => {
 });
 
 filterRandom.addEventListener('click', () => {
+  const images = getImages();
   const shuffled = images.sort(() => 0.5 - Math.random());
 
   let selected = shuffled.slice(0, RANDOM_PICTURES);
@@ -35,6 +37,7 @@ filterRandom.addEventListener('click', () => {
 });
 
 filterDiscussed.addEventListener('click', () => {
+  const images = getImages();
   const sorted = window._.sortBy(images, (image) => {
     return image.comments.length;
   });

@@ -15,6 +15,7 @@ const PERCENTS_CONVERTION = 100;
 const openModal = () => {
   const scrollOff = document.querySelector('body');
 
+  document.addEventListener('keydown', onEscKeyDown);
   imageUploadModal.classList.remove('hidden');
   resetEditor();
   resetEffects();
@@ -24,6 +25,7 @@ const openModal = () => {
 const onCloseModalClick = () => {
   imageUploadModal.classList.add('hidden');
   uploadPhotos.value = '';
+  document.removeEventListener('keydown', onEscKeyDown);
 };
 
 uploadPhotos.addEventListener('change', () => {
@@ -32,12 +34,11 @@ uploadPhotos.addEventListener('change', () => {
 
 buttonClose.addEventListener('click', onCloseModalClick);
 
-document.addEventListener('keydown', (evt) => {
+const onEscKeyDown = (evt) => {
   if (evt.key === 'Escape') {
     onCloseModalClick();
   }
-});
-
+};
 const resetEditor = () => {
   imagePreview.style = 'transform: scale(1.0)';
   scaleValue.value = '100%';
