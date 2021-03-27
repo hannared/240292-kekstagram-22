@@ -1,8 +1,8 @@
+const ALERT_SHOW_TIME = 5000;
+
 const mainContainer = document.querySelector('main');
 const errorTemplate = document.querySelector('#error').content;
 const errorFragment = document.createDocumentFragment();
-
-const ALERT_SHOW_TIME = 5000;
 
 const removeError = () => {
   document.querySelectorAll('.error').forEach((element) => {

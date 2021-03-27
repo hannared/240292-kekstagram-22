@@ -1,3 +1,5 @@
+const PAGE_SIZE = 5;
+
 const previewPicture = document.querySelector('.big-picture');
 const commentsList = previewPicture.querySelector('.social__comments');
 const commentTemplateElement = commentsList.querySelector('.social__comment');
@@ -59,7 +61,7 @@ const showPreview = ({ url, likes, comments, description }) => {
     comment.classList.add('hidden');
   });
 
-  showComments(5);
+  showComments(PAGE_SIZE);
 };
 
 const showComments = (n) => {
@@ -81,7 +83,7 @@ const showComments = (n) => {
 };
 
 commentsLoader.addEventListener('click', () => {
-  showComments(5);
+  showComments(PAGE_SIZE);
 });
 
 export default showPreview;

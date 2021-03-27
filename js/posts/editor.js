@@ -1,5 +1,9 @@
 import resetEffects from './effects.js';
 
+const SCALE_STEP = 25;
+const MAX_SCALE_VALUE = 100;
+const PERCENTS_CONVERTION = 100;
+
 const uploadPhotos = document.querySelector('#upload-file');
 const imageUploadModal = document.querySelector('.img-upload__overlay');
 const buttonClose = imageUploadModal.querySelector('#upload-cancel');
@@ -7,10 +11,6 @@ const buttonPlus = imageUploadModal.querySelector('.scale__control--bigger');
 const buttonMinus = imageUploadModal.querySelector('.scale__control--smaller');
 const scaleValue = imageUploadModal.querySelector('.scale__control--value');
 const imagePreview = imageUploadModal.querySelector('.img-upload__preview img');
-
-const SCALE_STEP = 25;
-const MAX_SCALE_VALUE = 100;
-const PERCENTS_CONVERTION = 100;
 
 const openModal = () => {
   const scrollOff = document.querySelector('body');

@@ -1,14 +1,14 @@
 import { getImages } from './data.js';
 import render from './render.js';
 
+const RERENDER_DELAY = 500;
+const ACTIVE_CLASS = 'img-filters__button--active';
+const RANDOM_PICTURES = 10;
+
 const filter = document.querySelector('.img-filters');
 const filterDefault = filter.querySelector('#filter-default');
 const filterRandom = filter.querySelector('#filter-random');
 const filterDiscussed = filter.querySelector('#filter-discussed');
-
-const RERENDER_DELAY = 500;
-const ACTIVE_CLASS = 'img-filters__button--active';
-const RANDOM_PICTURES = 10;
 
 const debouncedRenderImages = window._.debounce((images) => {
   render(images);

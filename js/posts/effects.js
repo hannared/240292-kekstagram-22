@@ -1,3 +1,12 @@
+const MIN_RANGE = 0;
+const MAX_RANGE = 100;
+const PERCENTS_CONVERTION = 100;
+const DEFAULT_VALUE = 100;
+const STEP = 1;
+const PHOBOS_COEFFICIENT = 2;
+const HEAT_COEFFICIENT = 3;
+const HEAT_COEFFICIENT_CORRECTION = 1;
+
 const imageUploadModal = document.querySelector('.img-upload__overlay');
 const imagePreview = imageUploadModal.querySelector('.img-upload__preview img');
 const effects = imageUploadModal.querySelectorAll('.effects__radio');
@@ -8,15 +17,6 @@ const effectSliderContainer = imageUploadModal.querySelector(
 const effectValue = imageUploadModal.querySelector('.effect-level__value');
 
 let selectedEffect = 'none';
-
-const MIN_RANGE = 0;
-const MAX_RANGE = 100;
-const PERCENTS_CONVERTION = 100;
-const DEFAULT_VALUE = 100;
-const STEP = 1;
-const PHOBOS_COEFFICIENT = 2;
-const HEAT_COEFFICIENT = 3;
-const HEAT_COEFFICIENT_CORRECTION = 1;
 
 effects.forEach((element) => {
   element.addEventListener('click', (evt) => {

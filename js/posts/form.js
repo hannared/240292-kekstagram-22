@@ -1,6 +1,7 @@
 import { onCloseModalClick } from './editor.js';
 import showError from '../errors.js';
 import showSuccess from '../success.js';
+
 const uploadForm = document.querySelector('.img-upload__form');
 
 const setUploadFormSubmit = (onSuccess) => {

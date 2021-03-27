@@ -1,8 +1,8 @@
+const ALERT_SHOW_TIME = 5000;
+
 const mainContainer = document.querySelector('main');
 const successTemplate = document.querySelector('#success').content;
 const successFragment = document.createDocumentFragment();
-
-const ALERT_SHOW_TIME = 5000;
 
 const removeSuccess = () => {
   document.querySelectorAll('.success').forEach((element) => {

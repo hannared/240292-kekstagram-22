@@ -1,12 +1,13 @@
+const TAG_LENGTH = 20;
+const HASH_PATTERN = /^#\w{1,19}$/;
+const MAX_HASH_TAGS = 5;
+
 const imageUploadModal = document.querySelector('.img-upload__overlay');
 const inputHashtag = imageUploadModal.querySelector('.text__hashtags');
 const comment = imageUploadModal.querySelector('.text__description');
 
-const TAG_LENGTH = 20;
-
 const validateHashTag = (hashtag) => {
-  const regex = /^#\w{1,19}$/;
-  const found = hashtag.match(regex);
+  const found = hashtag.match(HASH_PATTERN);
   return found !== null;
 };
 
@@ -25,7 +26,7 @@ const validateHashTags = (str) => {
     return false;
   }
 
-  if (hashTags.length > 5) {
+  if (hashTags.length > MAX_HASH_TAGS) {
     inputHashtag.setCustomValidity('Количество хэштегов не должно превышать 5');
     return false;
   }
